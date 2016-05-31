@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+*.pyc
+logs/*.logs
+gitsync/settings.py
