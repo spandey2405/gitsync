@@ -30,10 +30,15 @@ class TokenView(LoggingMixin, generics.GenericAPIView, mixins.CreateModelMixin, 
     def post(self, request):
         global user_lib, token_lib
         request = request.data.copy()
-        access_token, created = user_lib.login(request=request)
-        message='already logged in'
-        if created:
-            message = 'logged in'
+        try:
+            access_token, created = user_lib.login(request=request)
+            message='already logged in'
+            if created:
+                message = 'logged in'
+        except Exception as e:
+            print e
+            message = "error"
+            access_token = "NA"
         return CustomResponse(message=message, payload={'access_token':access_token}, code=HTTP_200_OK)
 
     @auto_close_db
