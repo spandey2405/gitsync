@@ -26,7 +26,7 @@ class PullRequest():
         for event in process:
             event = event.split('.')
             process_name = event[0]
-            process_info = gitsys_settings["GIT_SYNC_PROCESS"][process_name]
+            process_info = settings.GIT_SYNC_PROCESS[process_name]
             module = process_info['module']
             type   = process_name['type']
             if type == "SysVinit":
