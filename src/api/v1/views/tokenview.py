@@ -10,7 +10,6 @@ from src.common.libraries.constants import *
 from src.common.libraries.token.tokenlib import TokenLib
 from src.common.libraries.user.userlib import UserLib
 from src.common.models import User
-from src.common.helpers.Query2Dict import Query2DictConverter
 
 user_lib = UserLib()
 token_lib = TokenLib()

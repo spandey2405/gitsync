@@ -196,6 +196,29 @@ LOGGING = {
     }
 }
 
+GIT_SYNC_DIRECTORY = {
+    "DeployTest": {
+        "dir": "/Users/sp/ExtraWork/DeployTest",
+        "branch" : {
+            "staging": "something",
+            "production": "master"
+        },
+        "process" : ["UWSGI_MODULES.uwsgi", "NGINX_MODULE.nginx"]
+    }
+}
+
+GIT_SYNC_PROCESS = {
+    "UWSGI_MODULES" : {
+        "module_name": "uwsgi",
+        "type": "SysVinit/Upstart"
+    },
+    "NGINX_MODULE" : {
+        "module_name": "nginx",
+        "type": "SysVinit"
+    }
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

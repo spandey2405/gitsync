@@ -1,5 +1,5 @@
 .DS_Store
 .idea/
 *.pyc
-logs/*.logs
+logs/*
 gitsync/settings.py
