@@ -24,6 +24,8 @@ class UserLib():
         response = dict()
         if self.is_unique_email(user_details[KEY_EMAIL_ID]):
             try:
+                server_hash, salt = self.password_hashing(user_details[KEY_PASSWORD_HASH])
+                user_details[KEY_PASSWORD_HASH] = server_hash
                 AddRequest =  User.objects.create(**user_details)
                 return "User Added"
             except Exception as e:
