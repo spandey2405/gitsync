@@ -33,6 +33,9 @@ class UserLib():
     def login(self, signin_details):
         email = signin_details[KEY_EMAIL_ID]
         password_hash = signin_details[KEY_PASSWORD_HASH]
+
+        print email
+        print password_hash
         try:
             user = User.objects.get(email=email)
             print "success"
