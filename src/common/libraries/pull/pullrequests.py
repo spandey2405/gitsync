@@ -29,10 +29,11 @@ class PullRequest():
             process_info = settings.GIT_SYNC_PROCESS[process_name]
             module = process_info['module_name']
             type   = process_name['type']
+            print module, type
             if type == "SysVinit":
-                command = "Service {} restart".format(module)
+                command = "Service {0} restart".format(module)
             else:
-                command = "restart {}".format(module)
+                command = "restart {0}".format(module)
 
             print command
 
