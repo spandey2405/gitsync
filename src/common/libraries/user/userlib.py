@@ -34,15 +34,19 @@ class UserLib():
         email = signin_details[KEY_EMAIL_ID]
         password_hash = signin_details[KEY_PASSWORD_HASH]
 
-        print email
-        print password_hash
         try:
             user = User.objects.get(email=email)
-            print "success"
         except Exception as e:
             raise django_exc.ValidationError('Invalid Email Address', code=HTTP_400_BAD_REQUEST)
+
         hashed_salted_client_hash, salt = self.password_hashing(password_hash=password_hash, salt=user.salt)
         hash_stored_in_db = user.password_hash
+
+        print hash_stored_in_db
+        print hashed_salted_client_hash
+        print password_hash
+        print user.salt
+
         if hash_stored_in_db == hashed_salted_client_hash:
             token, created = Token.objects.get_or_create(user=user)
             return (token. access_token, created)
