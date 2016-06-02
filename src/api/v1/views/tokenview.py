@@ -31,7 +31,7 @@ class TokenView(LoggingMixin, generics.GenericAPIView, mixins.CreateModelMixin, 
         global user_lib, token_lib
         request = request.data.copy()
         try:
-            access_token, created = user_lib.login(request=request)
+            access_token, created = user_lib.login(request)
             message='already logged in'
             if created:
                 message = 'logged in'
