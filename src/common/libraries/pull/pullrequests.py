@@ -27,8 +27,9 @@ class PullRequest():
             event = event.split('.')
             process_name = event[0]
             process_info = settings.GIT_SYNC_PROCESS[process_name]
+
             module = process_info['module_name']
-            type   = process_name['type']
+            type   = process_info['type']
             print module, type
             if type == "SysVinit":
                 command = "Service {0} restart".format(module)
