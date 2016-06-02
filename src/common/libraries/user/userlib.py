@@ -26,6 +26,7 @@ class UserLib():
             try:
                 server_hash, salt = self.password_hashing(user_details[KEY_PASSWORD_HASH])
                 user_details[KEY_PASSWORD_HASH] = server_hash
+                user_details[KEY_SALT] = salt
                 AddRequest =  User.objects.create(**user_details)
                 return "User Added"
             except Exception as e:
